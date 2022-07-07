@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ public class WeightCalculatorTest {
         By inputWeightLocator = By.name("weight");
         By inputGenderLocator = By.xpath("//input[@value='m']");
         By buttonSubmitLocator = By.xpath("//input[@type='submit']");
+        By resultMessageLocator = By.xpath(" //tr[2]/td[2]");
         String name = "IVAN";
         String height = "183";
         String weight = "80";
@@ -30,6 +32,12 @@ public class WeightCalculatorTest {
         inputGender.click();
         WebElement buttonSubmit = driver.findElement(buttonSubmitLocator);
         buttonSubmit.click();
+
+        WebElement actualResult = driver.findElement(resultMessageLocator);
+        String actualResultMessage = actualResult.getText();
+        String expectedResultMessage = "Идеальная масса тела";
+        Assert.assertEquals(expectedResultMessage, actualResultMessage);
+
 
         driver.quit();
     }
