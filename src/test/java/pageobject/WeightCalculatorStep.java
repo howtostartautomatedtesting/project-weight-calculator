@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class WeightCalculatorPage {
+public class WeightCalculatorStep {
     WebDriver driver;
     By inputNameLocator = By.xpath("/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[2]/td[2]/input");
     By inputHeightLocator = By.xpath("//input[@name='height']");
@@ -12,7 +12,7 @@ public class WeightCalculatorPage {
     By inputGenderLocator = By.xpath("//input[@value='m']");
     By buttonSubmitLocator = By.xpath("//input[@type='submit']");
 
-    public WeightCalculatorPage(WebDriver driver) {
+    public WeightCalculatorStep(WebDriver driver) {
         this.driver = driver;
     }
 
