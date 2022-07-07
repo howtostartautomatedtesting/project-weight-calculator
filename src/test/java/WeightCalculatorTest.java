@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageobject.WeightCalculatorPage;
+import step.WeightCalculatorStep;
 
 public class WeightCalculatorTest {
 
@@ -19,12 +19,8 @@ public class WeightCalculatorTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://svyatoslav.biz/testlab/wt/index.php");
 
-        WeightCalculatorPage weightCalculatorPage = new WeightCalculatorPage(driver);
-        weightCalculatorPage.fillInputName(name);
-        weightCalculatorPage.fillInputHeight(height);
-        weightCalculatorPage.fillInputWeight(weight);
-        weightCalculatorPage.selectMaleGender();
-        weightCalculatorPage.clickButtonSubmit();
+        WeightCalculatorStep weightCalculatorStep = new WeightCalculatorStep(driver);
+        weightCalculatorStep.fillFormAndSubmit(name,height,weight);
 
         WebElement actualResult = driver.findElement(resultMessageLocator);
         String actualResultMessage = actualResult.getText();
